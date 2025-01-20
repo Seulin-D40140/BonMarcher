@@ -1,25 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
 
-from Model.ConsumableBought import ConsumableBuying
+from Model.ConsumableCart import ConsumableCart
 from Model.Customer import Customer
 from dataclasses import dataclass
 from abc import ABC , abstractmethod
 
+
 @dataclass
 class Order (ABC):
     customer : Customer
-    order : list[ConsumableBuying]
+    order : list[ConsumableCart]
     totalPrice : float
 
-    def to_dict(self):
-        # Convertir l'instance Order en dictionnaire pour la sérialisation JSON
-        return {
-            'customer': {'NOM': self.customer.name},
-            'order': [{'NAME': item.name, 'NB': item.count, 'PRIX': item.price} for item in self.order],
-            'totalPrice': self.totalPrice
-        }
-
-    def orderTreatment(customName: Customer, orderList: list[ConsumableBuying]):
-        orderResult = Order(customName, orderList, sum(order.price for order in orderList))
-        return orderResult
+    def display(self):
+        # Convertir l'instance Order en chaîne formatée avec retour à la ligne
+        return f"NOM : {self.customer.name}\n" + \
+            f"order:\n" + \
+            "\n".join([f"  NAME : {item.name}  NB : {item.count}  PRIX : {item.price}" for item in self.order]) + \
+            f"\ntotalPrice : {self.totalPrice}"

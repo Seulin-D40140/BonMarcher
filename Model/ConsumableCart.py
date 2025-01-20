@@ -10,3 +10,6 @@ class ConsumableBuying (ABC):
     name : str
     count : int
     price : float
+
+    def display(self):
+        return  f"NOM : {self.name} - prince : {self.price}"

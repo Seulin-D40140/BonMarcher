@@ -13,6 +13,3 @@ class Consumable (ABC):
 
     def display (self):
         print(f"id : {self.id} - name : {self.name} - Price : {self.price:.2f}€ - Stock : {self.stock}")
-
-    def stock(self):
-        return self.stock

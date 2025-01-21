@@ -1,6 +1,23 @@
 [
     {
-        "customer : ": "n",
-        "price total : ": 2.9
+        "customer : ": "nel",
+        "order : ": [
+            {
+                "name": "clementine",
+                "count": 6,
+                "price": 17.4
+            },
+            {
+                "name": "datte",
+                "count": 2,
+                "price": 14.0
+            },
+            {
+                "name": "grenade",
+                "count": 1,
+                "price": 3.5
+            }
+        ],
+        "price total : ": 34.9
     }
 ]

@@ -5,10 +5,10 @@ from Service import customableService
 from Service.customableService import *
 
 def mainToMain():
-    name = (input("bonjour quel est votre nom ? : "))
-    customName = Customer(name)
+    name : str = (input("bonjour quel est votre nom ? : "))
+    customName : Customer = Customer(name)
 
-    continu = True
+    continu : bool = True
     while continu :
         print("-----------------~~~~~~~~~~~~~~~~~-------------------")
         for consumable in consumableDatas:
@@ -22,7 +22,7 @@ def mainToMain():
         for consumable in consumableDatas:
             customableService.outStock(consumable)
 
-        continuCustom = (input("voulez vous autre chose ? 'y' pour continuer - other = 'no' : "))
+        continuCustom = (input("voulez vous autre chose ? 'y' pour continuer / All-Other = 'no' : "))
         if continuCustom !='y':
             continu = False
 
@@ -30,8 +30,6 @@ def mainToMain():
     print("*************** a bientot , RESUMER DE LA COMMANDE : ******************")
     print(customableService.orderTreatment(customName , orderList).display())
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    # for order in customableService.dayResult:
-    #     print(order)
 
 if __name__ == '__main__':
     mainToMain()
